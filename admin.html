@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPACEX Admin — Platform Management</title>
+  <meta name="description" content="Admin dashboard for SPACEX Trading Academy.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2300FF88'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='18' fill='%230a0a0f'>S</text></svg>">
+</head>
+<body>
+  
+  <!-- Toast Notifications -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <div class="dashboard-layout admin-layout">
+    
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <a href="index.html" class="navbar-logo" style="font-size: 20px;">
+          <div class="logo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a0a0f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <span>SPACEX <small style="font-size:10px; color:var(--color-neon); display:block; line-height:1;">ADMIN PANEL</small></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#overview" class="sidebar-link active" data-section="adminOverview">
+          <div class="link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          </div>
+          Overview
+        </a>
+        <a href="#upload" class="sidebar-link" data-section="adminUploadMenu">
+          <div class="link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          </div>
+          Upload Center
+        </a>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">A</div>
+        <div class="sidebar-user-info">
+          <h6>Admin User</h6>
+          <p id="adminEmailDisplay">Loading...</p>
+        </div>
+        <button id="logoutBtn" title="Log Out" style="background:none;border:none;color:var(--color-text-tertiary);cursor:pointer;padding:4px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main admin-main">
+      
+      <!-- Loading Overlay -->
+      <div id="adminLoader" style="position:fixed;inset:0;background:var(--color-bg-primary);z-index:99;display:flex;align-items:center;justify-content:center;">
+        <div class="spinner"></div>
+      </div>
+
+      <!-- SECTION: Overview -->
+      <div class="dash-content-section active" id="adminOverview">
+        <div class="dashboard-topbar">
+          <h2>Admin <span class="text-gradient">Overview</span></h2>
+        </div>
+
+        <div class="dashboard-stats" id="adminStatsGrid">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="glass-card">
+          <h3 style="margin-bottom: var(--space-4);">Recent Transactions</h3>
+          <div class="admin-table-container">
+            <table class="admin-table" id="recentPurchasesTable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Course</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: Upload Center -->
+      <div class="dash-content-section" id="adminUploadMenu" style="display:none;">
+        <div class="dashboard-topbar">
+          <h2>Upload <span class="text-gradient">Center</span></h2>
+        </div>
+
+        <div class="glass-card" style="margin-bottom: var(--space-6);">
+          <h3 style="margin-bottom: var(--space-2);">Upload Course Content</h3>
+          <p style="color:var(--color-text-tertiary);margin-bottom: var(--space-6);">Drag and drop MP4 video files directly here to securely host them on the SPACEX server. Max 500MB.</p>
+          
+          <div class="upload-zone" id="dropZone">
+            <input type="file" id="fileInput" style="display:none;" accept="video/mp4,video/webm,image/jpeg,image/png,application/pdf">
+            <div class="upload-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            </div>
+            <h4 class="upload-text">Click to browse or drag file here</h4>
+            <span class="upload-subtext">MP4, WebM, PDF, JPG, PNG</span>
+            
+            <div class="upload-progress" id="uploadProgress">
+              <div class="upload-progress-bar">
+                <div class="upload-progress-fill" id="uploadProgressBar"></div>
+              </div>
+              <div class="upload-progress-text" id="uploadProgressText">0% Complete</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Link to Course Form -->
+        <div class="glass-card" id="lessonLinkForm" style="display:none; transition: all 0.3s ease;">
+          <h3 style="margin-bottom: var(--space-4);">Link File to Course</h3>
+          <p id="uploadedFilePathDisplay" style="margin-bottom: var(--space-4); font-family: monospace; color: var(--color-neon); background: rgba(0,255,136,0.1); padding: 8px; border-radius: 4px; font-size: 12px;"></p>
+          
+          <form id="adminLessonForm">
+            <input type="hidden" id="uploadedFileUrl">
+            <input type="hidden" id="uploadedFileDuration">
+            
+            <div class="admin-form-group">
+              <label>Course Name</label>
+              <select id="lessonCourseId" required>
+                <!-- Usually dynamically fetched, hardcoding demo course ID for MVP -->
+                <option value="1">SPACEX Complete Trading System</option>
+              </select>
+            </div>
+            
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+              <div class="admin-form-group">
+                <label>Module Name</label>
+                <input type="text" id="lessonModuleName" placeholder="e.g. Module 3 — Market Execution" required>
+              </div>
+              <div class="admin-form-group">
+                <label>Lesson Title</label>
+                <input type="text" id="lessonTitle" placeholder="e.g. Entering a Trade" required>
+              </div>
+            </div>
+
+            <div class="admin-form-group">
+              <label>Short Description (Optional)</label>
+              <textarea id="lessonDesc" rows="3" placeholder="Explain the key takeaways of this lesson..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%; border:none;">Create Lesson with Video URL</button>
+          </form>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# Environment Variables
+.env
+backend/config/.env
+
+# Dependencies
+node_modules/
+vendor/
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+
+# Build artifacts and logs
+npm-debug.log
+yarn-error.log
+error_log
+*.log

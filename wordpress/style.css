@@ -1,0 +1,27 @@
+/*
+Theme Name: SPACEX Trading Academy
+Theme URI: https://spacextrading.com
+Author: SPACEX Team
+Author URI: https://spacextrading.com
+Description: Premium dark luxury theme for SPACEX Trading Academy — a high-end trading course platform featuring glassmorphism UI, neon green and gold accents, smooth animations, and full course management integration.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: spacex
+Tags: dark, trading, course, education, glassmorphism, premium, one-page, custom-menu
+
+SPACEX Trading Academy WordPress Theme
+Copyright (c) 2026 SPACEX
+*/
+
+/* Import the main CSS files */
+@import url('../css/variables.css');
+@import url('../css/base.css');
+@import url('../css/animations.css');
+@import url('../css/components.css');
+@import url('../css/sections.css');
+@import url('../css/dashboard.css');
+@import url('../css/responsive.css');

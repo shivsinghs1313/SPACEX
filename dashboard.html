@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SPACEX Trading Academy Dashboard — Access your courses, track progress, and download resources.">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>Dashboard — SPACEX Trading Academy</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/video-player.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2300FF88'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='18' fill='%230a0a0f'>S</text></svg>">
+</head>
+<body>
+  <div class="dashboard-layout">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-logo">
+        <a href="index.html" class="navbar-logo">
+          <div class="logo-icon">⚡</div>
+          <span>SPACEX</span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link active" data-section="dashOverview">
+          <span class="link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          Overview
+        </a>
+
+        <a class="sidebar-link" data-section="dashCourses">
+          <span class="link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </span>
+          My Courses
+        </a>
+
+        <a class="sidebar-link" data-section="dashLessons">
+          <span class="link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </span>
+          Lessons
+        </a>
+
+        <a class="sidebar-link" data-section="dashDownloads">
+          <span class="link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </span>
+          Downloads
+        </a>
+
+        <a class="sidebar-link" data-section="dashSettings">
+          <span class="link-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </span>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">S</div>
+        <div class="sidebar-user-info">
+          <h6>Student</h6>
+          <p>student@email.com</p>
+        </div>
+        <button id="logoutBtn" style="color:var(--color-text-tertiary);margin-left:auto;padding:var(--space-2);cursor:pointer;" title="Logout">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
+      </div>
+    </aside>
+
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <main class="dashboard-main">
+
+      <!-- ---- OVERVIEW SECTION ---- -->
+      <div class="dash-content-section" id="dashOverview">
+        <div class="dashboard-topbar">
+          <div>
+            <h2>Welcome back, <span class="text-gradient dashboard-welcome-name">Student</span> 👋</h2>
+            <p style="color:var(--color-text-tertiary);font-size:var(--text-sm);margin-top:var(--space-1);">Here's your learning progress at a glance</p>
+          </div>
+          <div class="dashboard-topbar-actions">
+            <a href="index.html" class="btn btn-secondary btn-sm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              Home
+            </a>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="dashboard-stats">
+          <div class="dash-stat-card">
+            <div class="stat-icon">📊</div>
+            <div class="stat-value">68%</div>
+            <div class="stat-label">Course Progress</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="stat-icon">📚</div>
+            <div class="stat-value">18/30</div>
+            <div class="stat-label">Lessons Completed</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="stat-icon">⏱️</div>
+            <div class="stat-value">24h</div>
+            <div class="stat-label">Time Invested</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-value">4/6</div>
+            <div class="stat-label">Modules Done</div>
+          </div>
+        </div>
+
+        <!-- Current Course -->
+        <div class="dashboard-courses">
+          <h3>Your Enrolled Course</h3>
+          <div class="course-card" style="margin-top:var(--space-4);">
+            <div class="course-thumbnail" style="background:linear-gradient(135deg,var(--color-surface-2),var(--color-surface-3));display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:2.5rem;">📈</span>
+            </div>
+            <div class="course-info">
+              <h4>SPACEX Complete Trading System</h4>
+              <p>6 Modules • 30 Lessons • 40+ Hours of Content</p>
+              <div class="course-progress-info">
+                <div class="progress-bar" style="max-width:300px;">
+                  <div class="progress-bar-fill" style="width:68%;"></div>
+                </div>
+                <span class="progress-percentage" style="color:var(--color-neon);font-weight:600;">68%</span>
+              </div>
+            </div>
+            <div class="course-actions">
+              <button class="btn btn-primary btn-sm" onclick="document.querySelector('[data-section=dashLessons]').click();">
+                Continue Learning
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ---- COURSES SECTION ---- -->
+      <div class="dash-content-section" id="dashCourses" style="display:none;">
+        <div class="dashboard-topbar">
+          <h2>My <span class="text-gradient">Courses</span></h2>
+        </div>
+        <div class="course-card" style="margin-top:var(--space-4);">
+          <div class="course-thumbnail" style="background:linear-gradient(135deg,var(--color-surface-2),var(--color-surface-3));display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:2.5rem;">📈</span>
+          </div>
+          <div class="course-info">
+            <h4>SPACEX Complete Trading System</h4>
+            <p>Master the markets with a proven, rules-based trading system.</p>
+            <div class="course-progress-info">
+              <div class="progress-bar" style="max-width:300px;">
+                <div class="progress-bar-fill" style="width:68%;"></div>
+              </div>
+              <span style="color:var(--color-neon);font-weight:600;">68%</span>
+            </div>
+          </div>
+          <div class="course-actions">
+            <button class="btn btn-primary btn-sm" onclick="document.querySelector('[data-section=dashLessons]').click();">Continue</button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ---- LESSONS SECTION ---- -->
+      <div class="dash-content-section" id="dashLessons" style="display:none;">
+        <div class="dashboard-topbar">
+          <h2>Course <span class="text-gradient">Lessons</span></h2>
+          <div>
+            <span class="completed-count" style="color:var(--color-text-tertiary);font-size:var(--text-sm);">18/30 Lessons</span>
+          </div>
+        </div>
+
+        <!-- Video Player -->
+        <div class="video-player">
+          <!-- Custom video player renders here via JS -->
+        </div>
+
+        <!-- Lesson List -->
+        <div class="lessons-section">
+          <h4 style="margin-bottom:var(--space-4);">Module 1 — Market Foundations</h4>
+          <div class="lesson-list">
+            <div class="lesson-item completed" data-lesson-id="1">
+              <div class="lesson-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="lesson-info">
+                <h6>How Markets Actually Work</h6>
+                <p>Market structure fundamentals</p>
+              </div>
+              <span class="lesson-duration">18:30</span>
+            </div>
+            <div class="lesson-item completed" data-lesson-id="2">
+              <div class="lesson-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="lesson-info">
+                <h6>Market Structure: Trends & Ranges</h6>
+                <p>Identifying trend phases</p>
+              </div>
+              <span class="lesson-duration">24:15</span>
+            </div>
+            <div class="lesson-item completed" data-lesson-id="3">
+              <div class="lesson-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="lesson-info">
+                <h6>Liquidity & Order Flow</h6>
+                <p>Institutional footprints</p>
+              </div>
+              <span class="lesson-duration">31:42</span>
+            </div>
+            <div class="lesson-item completed" data-lesson-id="4">
+              <div class="lesson-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="lesson-info">
+                <h6>Chart Setup & Configuration</h6>
+                <p>Professional workspace setup</p>
+              </div>
+              <span class="lesson-duration">15:20</span>
+            </div>
+            <div class="lesson-item completed" data-lesson-id="5">
+              <div class="lesson-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="lesson-info">
+                <h6>Reading Price Like a Pro</h6>
+                <p>Advanced price reading techniques</p>
+              </div>
+              <span class="lesson-duration">28:10</span>
+            </div>
+          </div>
+
+          <h4 style="margin-top:var(--space-8);margin-bottom:var(--space-4);">Module 2 — Price Action Mastery</h4>
+          <div class="lesson-list">
+            <div class="lesson-item completed" data-lesson-id="6">
+              <div class="lesson-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="lesson-info">
+                <h6>Candlestick Psychology</h6>
+                <p>What each pattern truly means</p>
+              </div>
+              <span class="lesson-duration">26:45</span>
+            </div>
+            <div class="lesson-item completed" data-lesson-id="7">
+              <div class="lesson-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="lesson-info">
+                <h6>Support & Resistance Levels</h6>
+                <p>Dynamic and static levels</p>
+              </div>
+              <span class="lesson-duration">33:20</span>
+            </div>
+            <div class="lesson-item active" data-lesson-id="8">
+              <div class="lesson-check"></div>
+              <div class="lesson-info">
+                <h6>Chart Patterns That Work</h6>
+                <p>Proven patterns for entries</p>
+              </div>
+              <span class="lesson-duration">29:55</span>
+            </div>
+            <div class="lesson-item" data-lesson-id="9">
+              <div class="lesson-check"></div>
+              <div class="lesson-info">
+                <h6>Multi-Timeframe Analysis</h6>
+                <p>Framework for TF alignment</p>
+              </div>
+              <span class="lesson-duration">35:10</span>
+            </div>
+            <div class="lesson-item" data-lesson-id="10">
+              <div class="lesson-check"></div>
+              <div class="lesson-info">
+                <h6>Live Market Analysis (Part 1)</h6>
+                <p>Real-time chart analysis session</p>
+              </div>
+              <span class="lesson-duration">45:30</span>
+            </div>
+          </div>
+
+          <h4 style="margin-top:var(--space-8);margin-bottom:var(--space-4);">Module 3 — The SPACEX Entry System</h4>
+          <div class="lesson-list">
+            <div class="lesson-item" data-lesson-id="11">
+              <div class="lesson-check"></div>
+              <div class="lesson-info">
+                <h6>The 5-Point Entry Checklist</h6>
+                <p>Complete entry criteria</p>
+              </div>
+              <span class="lesson-duration">22:00</span>
+            </div>
+            <div class="lesson-item" data-lesson-id="12">
+              <div class="lesson-check"></div>
+              <div class="lesson-info">
+                <h6>Confirmation vs. Anticipation</h6>
+                <p>When to enter and when to wait</p>
+              </div>
+              <span class="lesson-duration">19:40</span>
+            </div>
+            <div class="lesson-item" data-lesson-id="13">
+              <div class="lesson-check"></div>
+              <div class="lesson-info">
+                <h6>Stop Loss Placement Science</h6>
+                <p>Optimal SL positioning</p>
+              </div>
+              <span class="lesson-duration">27:15</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ---- DOWNLOADS SECTION ---- -->
+      <div class="dash-content-section" id="dashDownloads" style="display:none;">
+        <div class="dashboard-topbar">
+          <h2>Downloadable <span class="text-gradient">Resources</span></h2>
+        </div>
+        <div class="downloads-grid" style="margin-top:var(--space-6);">
+          <div class="download-item">
+            <div class="download-icon">📋</div>
+            <div class="download-info">
+              <h6>SPACEX Entry Checklist</h6>
+              <p>PDF • 245 KB</p>
+            </div>
+          </div>
+          <div class="download-item">
+            <div class="download-icon">📊</div>
+            <div class="download-info">
+              <h6>Risk Calculator Spreadsheet</h6>
+              <p>XLSX • 128 KB</p>
+            </div>
+          </div>
+          <div class="download-item">
+            <div class="download-icon">📓</div>
+            <div class="download-info">
+              <h6>Trading Journal Template</h6>
+              <p>PDF • 320 KB</p>
+            </div>
+          </div>
+          <div class="download-item">
+            <div class="download-icon">📈</div>
+            <div class="download-info">
+              <h6>Chart Patterns Cheatsheet</h6>
+              <p>PDF • 1.2 MB</p>
+            </div>
+          </div>
+          <div class="download-item">
+            <div class="download-icon">🧠</div>
+            <div class="download-info">
+              <h6>Psychology Workbook</h6>
+              <p>PDF • 890 KB</p>
+            </div>
+          </div>
+          <div class="download-item">
+            <div class="download-icon">⚙️</div>
+            <div class="download-info">
+              <h6>Daily Routine Checklist</h6>
+              <p>PDF • 156 KB</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ---- SETTINGS SECTION ---- -->
+      <div class="dash-content-section" id="dashSettings" style="display:none;">
+        <div class="dashboard-topbar">
+          <h2>Account <span class="text-gradient">Settings</span></h2>
+        </div>
+        <div class="glass-card-static" style="max-width:600px;margin-top:var(--space-6);">
+          <h4 style="margin-bottom:var(--space-6);">Profile Information</h4>
+          <form>
+            <div class="form-group">
+              <label class="form-label" for="settingsName">Full Name</label>
+              <input type="text" id="settingsName" class="form-input" value="Student" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="settingsEmail">Email</label>
+              <input type="email" id="settingsEmail" class="form-input" value="student@email.com" placeholder="Your email" disabled style="opacity:0.6;">
+            </div>
+            <button type="button" class="btn btn-primary btn-sm">Save Changes</button>
+          </form>
+
+          <hr style="border:none;border-top:1px solid var(--color-border);margin:var(--space-8) 0;">
+
+          <h4 style="margin-bottom:var(--space-6);">Change Password</h4>
+          <form>
+            <div class="form-group">
+              <label class="form-label" for="currentPassword">Current Password</label>
+              <input type="password" id="currentPassword" class="form-input" placeholder="••••••••">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="newPassword">New Password</label>
+              <input type="password" id="newPassword" class="form-input" placeholder="Min. 8 characters">
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm">Update Password</button>
+          </form>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Mobile Sidebar Toggle -->
+    <button class="sidebar-toggle-mobile" aria-label="Toggle sidebar">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/payment.js"></script>
+  <script src="js/video-player.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

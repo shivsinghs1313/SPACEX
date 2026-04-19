@@ -1,0 +1,161 @@
+/* ============================================
+   SPACEX — Admin Panel Styles
+   ============================================ */
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+}
+
+.admin-main {
+  padding: var(--space-8);
+  margin-left: 250px;
+}
+
+/* Upload Zone */
+.upload-zone {
+  border: 2px dashed var(--color-neon-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-8);
+  text-align: center;
+  background: rgba(0, 255, 136, 0.03);
+  transition: all var(--duration-normal) var(--ease-smooth);
+  cursor: pointer;
+  position: relative;
+}
+
+.upload-zone:hover, .upload-zone.dragover {
+  background: rgba(0, 255, 136, 0.08);
+  border-color: var(--color-neon);
+}
+
+.upload-icon {
+  font-size: 32px;
+  color: var(--color-neon);
+  margin-bottom: var(--space-4);
+}
+
+.upload-text {
+  font-size: var(--text-lg);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.upload-subtext {
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+}
+
+.upload-progress {
+  display: none;
+  margin-top: var(--space-6);
+  width: 100%;
+}
+
+.upload-progress.active {
+  display: block;
+}
+
+.upload-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+}
+
+.upload-progress-fill {
+  height: 100%;
+  background: var(--gradient-neon);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.upload-progress-text {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  text-align: right;
+}
+
+/* Admin Tables */
+.admin-table-container {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: var(--glass-border);
+  background: var(--glass-bg);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+  padding: var(--space-4) var(--space-6);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-table th {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.admin-table td {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tr:hover td {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+/* Form Styles Override for Admin */
+.admin-form-group {
+  margin-bottom: var(--space-5);
+}
+
+.admin-form-group label {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-2);
+}
+
+.admin-form-group input, 
+.admin-form-group select, 
+.admin-form-group textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  transition: border-color var(--duration-normal) var(--ease-smooth);
+}
+
+.admin-form-group input:focus, 
+.admin-form-group select:focus, 
+.admin-form-group textarea:focus {
+  border-color: var(--color-neon);
+  outline: none;
+}
+
+/* Modal specific for adding lessons */
+.admin-modal {
+  max-width: 600px;
+}

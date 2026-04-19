@@ -1,0 +1,315 @@
+/* ============================================
+   SPACEX — Responsive Breakpoints
+   Mobile-First Approach
+   ============================================ */
+
+/* ==== MOBILE (max-width: 768px) ==== */
+@media (max-width: 768px) {
+  /* Navigation */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    flex-direction: column;
+    background: var(--glass-bg-dark);
+    backdrop-filter: blur(var(--glass-blur-lg));
+    -webkit-backdrop-filter: blur(var(--glass-blur-lg));
+    padding: 100px var(--space-8) var(--space-8);
+    transform: translateX(100%);
+    transition: transform var(--duration-slow) var(--ease-smooth);
+    gap: var(--space-4);
+    z-index: var(--z-sticky);
+    border-left: var(--glass-border);
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-cta {
+    margin-left: 0;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 80px;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    gap: var(--space-6);
+  }
+
+  .hero-float {
+    display: none;
+  }
+
+  /* Grids */
+  .problem-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .steps-grid::before {
+    display: none;
+  }
+
+  .solution-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .solution-visual {
+    order: -1;
+  }
+
+  .founder-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+
+  .founder-image-wrapper {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .founder-image-wrapper .credential-badge {
+    right: -10px;
+    bottom: -10px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-features {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    min-width: 280px;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+
+  /* Countdown */
+  .countdown {
+    gap: var(--space-3);
+  }
+
+  .countdown-value {
+    width: 64px;
+    height: 64px;
+    font-size: var(--text-2xl);
+  }
+
+  /* Pricing */
+  .price-card {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  /* Sections */
+  .section-header {
+    margin-bottom: var(--space-10);
+  }
+
+  /* Sticky CTA */
+  .sticky-cta .container {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-3);
+  }
+
+  .sticky-cta-text {
+    font-size: var(--text-xs);
+  }
+
+  /* Dashboard */
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .dashboard-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .dashboard-main {
+    margin-left: 0;
+    padding: var(--space-4);
+  }
+
+  .sidebar-toggle-mobile {
+    display: flex;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .course-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .course-thumbnail {
+    width: 100%;
+    height: 160px;
+  }
+}
+
+/* ==== SMALL PHONES (max-width: 480px) ==== */
+@media (max-width: 480px) {
+  .hero-stats {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .countdown {
+    gap: var(--space-2);
+  }
+
+  .countdown-value {
+    width: 56px;
+    height: 56px;
+    font-size: var(--text-xl);
+  }
+
+  .countdown-separator {
+    font-size: var(--text-xl);
+    margin-top: var(--space-4);
+  }
+
+  .final-cta-actions {
+    flex-direction: column;
+  }
+
+  .btn-lg {
+    width: 100%;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==== TABLET (max-width: 1024px) ==== */
+@media (max-width: 1024px) {
+  .problem-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps-grid::before {
+    display: none;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+}
+
+/* ==== LARGE DESKTOP (min-width: 1400px) ==== */
+@media (min-width: 1400px) {
+  .hero-content {
+    max-width: 900px;
+  }
+}
+
+/* ==== REDUCED MOTION ==== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-on-scroll,
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-scale {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ==== HIGH CONTRAST ==== */
+@media (prefers-contrast: high) {
+  :root {
+    --glass-bg: rgba(18, 18, 30, 0.8);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+    --color-text-secondary: #c0c0d8;
+    --color-text-tertiary: #8a8aaa;
+  }
+}
+
+/* ==== PRINT ==== */
+@media print {
+  .navbar, .sticky-cta, .hero-bg, .hero-chart, .hero-grid {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+}
